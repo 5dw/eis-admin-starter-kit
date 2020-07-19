@@ -1,26 +1,17 @@
-import FloatingWindow from '@/components/FloatingWindow/index.vue';
-import SelectLocales from '@/components/SelectLocales/index.vue';
-import demoBtn from './view/index.vue';
-import TestF from './view/testf.vue';
+import demoBtn from './view/demoBtn.vue';
 
 export default {
   config: {
     age: 20,
-    backendDependencies: [
-      'demo',
-    ],
+    backendDependencies: [],
   },
-  routers: [{
-    path: '',
-    name: 'demo',
-    component: () => import('./view'),
-  }],
+  routers: [
+    {
+      name: 'demo',
+      component: () => import('./view/demo'),
+    },
+  ],
   components: {
-    FirstDemo: demoBtn,
-    FloatingWindow,
-    SelectLocales,
-  },
-  fieldComponents: {
-    TestF,
+    DemoBtn: demoBtn,
   },
 };

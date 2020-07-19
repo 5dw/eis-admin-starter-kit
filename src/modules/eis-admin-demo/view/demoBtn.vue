@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'FirstDemo',
+  name: 'DemoBtn',
   props: {
     label: { type: String, default: 'Demo' },
   },
