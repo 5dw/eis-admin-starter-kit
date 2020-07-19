@@ -1,9 +1,0 @@
-{
-  "name": "eis-admin-demo",
-  "version": "0.0.1",
-  "description": "The demo module of the EIS frontend.",
-  "main": "index.js",
-  "author": "zhiquan",
-  "license": "UNLICENSED",
-  "private": false
-}
