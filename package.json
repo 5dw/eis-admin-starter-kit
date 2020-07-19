@@ -1,0 +1,54 @@
+{
+  "name": "eis-admin-starter-kit",
+  "version": "0.0.1",
+  "description": "The starter kit module for the EIS system frontend.",
+  "author": "zhiquan",
+  "license": "GPL-1.0-or-later",
+  "private": false,
+  "scripts": {
+    "start": "quasar dev",
+    "build": "quasar build",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --ext .js,.vue src --fix"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.8.2",
+    "axios": "^0.18.1",
+    "js-cookie": "^2.2.1",
+    "quasar": "^1.12.12",
+    "vue-i18n": "^8.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^2.0.6",
+    "@vue/devtools": "^5.3.3",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "devtron": "^1.4.0",
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^5.0.0"
+  },
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions",
+    "ie 11"
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
+  }
+}
