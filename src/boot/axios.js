@@ -5,7 +5,7 @@ import config from '../config';
 const bus = new Vue();
 
 const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: config.backendURL + config.baseUrl,
   timeout: 6000,
 });
 

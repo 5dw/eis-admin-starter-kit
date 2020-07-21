@@ -5,9 +5,13 @@
   "author": "zhiquan",
   "license": "GPL-1.0-or-later",
   "private": false,
+  "main": "index.js",
+  "repository": "git@gitlab.com:eis-modules/eis-admin-starter-kit.git",
   "scripts": {
     "start": "quasar dev",
-    "build": "quasar build",
+    "build": "env=development quasar build",
+    "build:prod": "env=production quasar build",
+    "build:test": "env=test quasar build",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix"
   },

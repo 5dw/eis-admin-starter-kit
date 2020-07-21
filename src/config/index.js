@@ -86,11 +86,6 @@ const allConfigs = {
   testConfig,
 };
 
-let confName = 'developmentConfig';
-if (process.env.PROD) {
-  confName = 'productionConfig';
-}
-
-const finalConfig = Object.merge(config, allConfigs[confName]);
+const finalConfig = Object.merge(config, allConfigs[`${process.env.env || 'development'}Config`]);
 
 export default finalConfig;

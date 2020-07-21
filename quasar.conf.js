@@ -98,6 +98,9 @@ module.exports = function (ctx) {
         });
       },
       devtool: 'source-map',
+      env: {
+        env: process.env.env,
+      },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
