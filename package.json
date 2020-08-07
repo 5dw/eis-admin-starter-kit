@@ -18,6 +18,7 @@
   "dependencies": {
     "@quasar/extras": "^1.8.2",
     "axios": "^0.18.1",
+    "eis-admin-core": "^0.0.1",
     "eis-admin-demo": "^0.0.1",
     "js-cookie": "^2.2.1",
     "quasar": "^1.12.12",
