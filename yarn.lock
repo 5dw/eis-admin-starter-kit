@@ -3548,10 +3548,10 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-eis-admin-core@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/eis-admin-core/-/eis-admin-core-0.0.1.tgz#9c5d6233f00e06dd0c80135c58b56da953b3167d"
-  integrity sha512-PWJNn7r5rVMMv/iar4m5n8UOf8kqAnPRjqrAs0Ynd4OjJA0tDjTewCXgC4rOt1rcuNqf88I7bhEK4a6rUmZOhA==
+eis-admin-core@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/eis-admin-core/-/eis-admin-core-0.0.2.tgz#9126d59ceb4e6f1bb8f1f8b517183f72cb66fbfe"
+  integrity sha512-hadLZY00UBFWyZEjm/rcqI6L69lSgnan9esiNnjjfCXU7i0r2padcc9XOV0URL12NWJxtyUQhO11VwegFAe5rQ==
 
 eis-admin-demo@^0.0.1:
   version "0.0.1"
