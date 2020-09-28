@@ -51,7 +51,7 @@ module.exports = function (ctx) {
       //            (fastest compile time; minimum bundle size; most tedious)
       // * true   - Import everything from Quasar
       //            (not treeshaking Quasar; biggest bundle size; convenient)
-      all: 'auto',
+      importStrategy: 'auto',
 
       components: [],
       directives: [],
@@ -63,9 +63,6 @@ module.exports = function (ctx) {
       ],
     },
 
-    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
-    supportIE: true,
-
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       scopeHoisting: true,
@@ -76,9 +73,10 @@ module.exports = function (ctx) {
       // Options below are automatically set depending on the env, set them if you want to override
       // preloadChunks: false,
       // extractCSS: false,
+      transpile: true,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
-      extendWebpack(cfg) {
+      extendWebpack (cfg) {
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
 

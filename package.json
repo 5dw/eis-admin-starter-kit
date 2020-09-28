@@ -1,6 +1,6 @@
 {
   "name": "eis-admin-starter-kit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "The starter kit module for the EIS system frontend.",
   "author": "zhiquan",
   "license": "GPL-1.0-or-later",
@@ -16,16 +16,17 @@
     "lint:fix": "eslint --ext .js,.vue src --fix"
   },
   "dependencies": {
-    "@quasar/extras": "^1.8.2",
+    "@quasar/extras": "^1.9.6",
     "axios": "^0.18.1",
+    "core-js": "^3.6.5",
     "eis-admin-core": "^0.0.2",
     "eis-admin-demo": "^0.0.1",
     "js-cookie": "^2.2.1",
-    "quasar": "^1.12.12",
-    "vue-i18n": "^8.0.0"
+    "quasar": "^1.14.0",
+    "vue-i18n": "^8.21.1"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.6",
+    "@quasar/app": "^2.1.0",
     "@vue/devtools": "^5.3.3",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
