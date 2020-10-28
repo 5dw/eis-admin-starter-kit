@@ -16,24 +16,25 @@
     "lint:fix": "eslint --ext .js,.vue src --fix"
   },
   "dependencies": {
-    "@quasar/extras": "^1.9.6",
-    "axios": "^0.18.1",
-    "core-js": "^3.6.5",
-    "eis-admin-core": "^0.0.2",
+    "@quasar/extras": "^1.9.10",
+    "axios": "^0.19.0",
+    "echarts": "^4.9.0",
+    "eis-admin-core": "^0.0.4",
     "eis-admin-demo": "^0.0.1",
     "js-cookie": "^2.2.1",
-    "quasar": "^1.14.0",
+    "quasar": "^1.14.3",
     "vue-i18n": "^8.21.1"
   },
   "devDependencies": {
-    "@quasar/app": "^2.1.0",
+    "@quasar/app": "^2.1.6",
     "@vue/devtools": "^5.3.3",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "devtron": "^1.4.0",
-    "eslint": "^5.10.0",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^5.0.0"
+    "eslint": "7.12.0",
+    "eslint-loader": "4.0.2",
+    "eslint-plugin-vue": "7.1.0",
+    "strip-ansi": "=3.0.1"
   },
   "engines": {
     "node": ">= 10.18.1",
@@ -41,16 +42,16 @@
     "yarn": ">= 1.21.1"
   },
   "browserslist": [
-    "last 10 Chrome versions",
-    "last 10 Firefox versions",
-    "last 4 Edge versions",
-    "last 7 Safari versions",
-    "last 8 Android versions",
-    "last 8 ChromeAndroid versions",
-    "last 8 FirefoxAndroid versions",
+    "ie 11",
+    "last 20 Chrome versions",
+    "last 20 Firefox versions",
+    "last 10 Edge versions",
+    "last 20 Safari versions",
+    "last 10 Android versions",
+    "last 10 ChromeAndroid versions",
+    "last 10 FirefoxAndroid versions",
     "last 10 iOS versions",
-    "last 5 Opera versions",
-    "ie 11"
+    "last 10 Opera versions"
   ],
   "prettier": {
     "trailingComma": "es5",

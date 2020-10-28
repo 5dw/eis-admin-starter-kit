@@ -1,12 +1,20 @@
 import Vue from 'vue';
 import axios from 'axios';
+import { Platform } from 'quasar';
 import config from '../config';
 
 const bus = new Vue();
 
+let { baseUrl } = config;
+if (Platform.is.capacitor) {
+  baseUrl = `${config.backendURL}${baseUrl}`;
+}
+
+axios.defaults.timeout = 3000 * 1000;
+
 const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
-  timeout: 6000,
+  baseURL: baseUrl,
+  timeout: 3000 * 1000,
 });
 
 // respone interceptor
@@ -39,7 +47,7 @@ const getQueryKVPare = (o, parent = '') => {
   return kv;
 };
 
-const getRequest = (url, options) => {
+const getRequest = (url, options, newWin = false) => {
   let queryString = '';
   if (options && Object.keys(options).length) {
     if (url.indexOf('?') > 0) {
@@ -49,6 +57,10 @@ const getRequest = (url, options) => {
     }
 
     queryString += getQueryKVPare(options).join('&') || '';
+  }
+
+  if (newWin) {
+    return window.open(`${config.baseUrl}/${url}${queryString}`);
   }
 
   return axiosInstance.get(url + queryString);

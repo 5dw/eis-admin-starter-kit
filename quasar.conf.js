@@ -1,6 +1,8 @@
 /* eslint-disable func-names */
 const path = require('path');
 
+const DEV_SERVER = 'http://127.0.0.1:8000';
+
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
@@ -15,6 +17,7 @@ module.exports = function (ctx) {
       'axios',
       'mixin',
       'notify',
+      'echarts',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -60,6 +63,8 @@ module.exports = function (ctx) {
       plugins: [
         'Notify',
         'Dialog',
+        'Meta',
+        'Loading',
       ],
     },
 
@@ -74,9 +79,10 @@ module.exports = function (ctx) {
       // preloadChunks: false,
       // extractCSS: false,
       transpile: true,
+      transpileDependencies: [/eis-admin-[a-z-]*/],
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
-      extendWebpack (cfg) {
+      extendWebpack(cfg) {
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
 
@@ -106,6 +112,15 @@ module.exports = function (ctx) {
       https: false,
       port: 8080,
       open: true, // opens browser window automatically
+      proxy: {
+        '/api': {
+          target: `${DEV_SERVER}/api`,
+          pathRewrite: { '^/api': '' },
+        },
+        '/assets': {
+          target: DEV_SERVER,
+        },
+      },
     },
 
     // animations: 'all', // --- includes all animations
