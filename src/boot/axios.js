@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import axios from 'axios';
-import { Platform } from 'quasar';
+// import { Platform } from 'quasar';
 import config from '../config';
 
+const Mocks = [];
 const bus = new Vue();
 
-let { baseUrl } = config;
-if (Platform.is.capacitor) {
-  baseUrl = `${config.backendURL}${baseUrl}`;
-}
+const { baseUrl } = config;
+// if (Platform.is.capacitor) {
+//   baseUrl = `${config.backendURL}${baseUrl}`;
+// }
 
 axios.defaults.timeout = 3000 * 1000;
 
@@ -31,6 +32,18 @@ axiosInstance.interceptors.response.use(
   },
 );
 
+const mockIt = (url, method) => {
+  const theMock = Mocks.find(
+    mk => mk.method === method && new RegExp(mk.url).test(url),
+  );
+  if (theMock && theMock.func) {
+    return new Promise((resolve) => {
+      resolve(typeof theMock.func === 'function' ? theMock.func() : theMock.func);
+    });
+  }
+  return undefined;
+};
+
 const getQueryKVPare = (o, parent = '') => {
   let kv = [];
   if (typeof o === 'object') {
@@ -41,7 +54,7 @@ const getQueryKVPare = (o, parent = '') => {
       kv = kv.concat(kvl);
     }
   } else if (parent && o) {
-    kv.push(`${parent}=${o}`);
+    kv.push(`${encodeURI(parent)}=${encodeURI(o)}`);
   }
 
   return kv;
@@ -60,10 +73,10 @@ const getRequest = (url, options, newWin = false) => {
   }
 
   if (newWin) {
-    return window.open(`${config.baseUrl}/${url}${queryString}`);
+    return window.open(`${config.baseUrl}/${encodeURI(url)}${queryString}`);
   }
 
-  return axiosInstance.get(url + queryString);
+  return mockIt(`${url}${queryString}`, 'get') || axiosInstance.get(encodeURI(url) + queryString);
 };
 
 const postRequest = (url, data) => {
@@ -80,7 +93,7 @@ const postRequest = (url, data) => {
 
   if (data && data.pwdConfirm) delete data.pwdConfirm;
 
-  return axiosInstance.post(url, data);
+  return mockIt(url, 'post', data) || axiosInstance.post(url, data);
 };
 
 const putRequest = (url, data) => {
@@ -97,10 +110,10 @@ const putRequest = (url, data) => {
 
   if (data && data.pwdConfirm) delete data.pwdConfirm;
 
-  return axiosInstance.put(url, data);
+  return mockIt(url, 'put', data) || axiosInstance.put(url, data);
 };
 
-const deleteRequest = (url, data) => axiosInstance.delete(url, { data });
+const deleteRequest = (url, data) => mockIt(url, 'delete', { data }) || axiosInstance.delete(url, { data });
 
 const requests = {
   $axios: axiosInstance,
@@ -109,6 +122,15 @@ const requests = {
   putRequest,
   deleteRequest,
   nothingRequest: () => axiosInstance.get('/nothing'),
+  Mock: {
+    mock: (url, method = 'get', func) => {
+      Mocks.push({
+        url,
+        method,
+        func,
+      });
+    },
+  },
 };
 
 Object.assign(Vue.prototype, requests);
