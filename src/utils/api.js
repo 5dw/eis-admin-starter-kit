@@ -3,7 +3,7 @@ import store from '@/store';
 
 export function canI(url) {
   if (store && store.state.app.canI) {
-    const storedCanI = store.state.app.canI.find(ci => ci && ci.url === url);
+    const storedCanI = store.state.app.canI.find((ci) => ci && ci.url === url);
     if (storedCanI && typeof storedCanI.can !== 'undefined') {
       return new Promise(((resolve) => {
         resolve(!!storedCanI.can);

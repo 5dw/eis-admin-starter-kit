@@ -20,7 +20,7 @@ const axiosInstance = axios.create({
 
 // respone interceptor
 axiosInstance.interceptors.response.use(
-  response => response.data,
+  (response) => response.data,
   (error) => {
     if (error && error.response && error.response.status === 401) {
       if (window.location.pathname !== '/login') { window.location.pathname = '/login'; }
@@ -34,7 +34,7 @@ axiosInstance.interceptors.response.use(
 
 const mockIt = (url, method) => {
   const theMock = Mocks.find(
-    mk => mk.method === method && new RegExp(mk.url).test(url),
+    (mk) => mk.method === method && new RegExp(mk.url).test(url),
   );
   if (theMock && theMock.func) {
     return new Promise((resolve) => {
