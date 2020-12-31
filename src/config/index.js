@@ -76,16 +76,21 @@ Object.setValue = (obj, n, v) => {
 };
 
 import config from './config.default';
-import developmentConfig from './config.development';
-import productionConfig from './config.production';
-import testConfig from './config.test';
 
-const allConfigs = {
-  developmentConfig,
-  productionConfig,
-  testConfig,
-};
+const allConfigs = {};
 
-const finalConfig = Object.merge(config, allConfigs[`${process.env.env || 'development'}Config`]);
+const configContext = require.context('./', true, /\/config.[a-z]+.js$/);
+const contextKeys = configContext.keys();
+for (let i = 0; i < contextKeys.length; i += 1) {
+  let cn = contextKeys[i];
+  cn = cn.substr('./config.'.length);
+  cn = cn.substr(0, cn.length - 3);
+
+  if (cn && !allConfigs[cn]) {
+    allConfigs[cn] = configContext(contextKeys[i]).default;
+  }
+}
+
+const finalConfig = Object.merge(config, allConfigs[`${process.env.env || 'development'}`]);
 
 export default finalConfig;

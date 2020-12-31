@@ -1,6 +1,8 @@
 .DS_Store
 .thumbs.db
 node_modules
+/src/config/config.bundle.js
+/src/modules/bundle
 
 # Quasar core related directories
 .quasar
