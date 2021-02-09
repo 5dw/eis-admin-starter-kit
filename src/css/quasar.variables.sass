@@ -1,60 +1,18 @@
-// Quasar Sass (& SCSS) Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
-
-// Check documentation for full list of Quasar variables
-
-// Your own variables (that are declared here) and Quasar's own
-// ones will be available out of the box in your .vue/.scss/.sass files
-
-// It's highly recommended to change the default colors
-// to match your app's branding.
-// Tip: Use the "Theme Builder" on Quasar's documentation website.
-
-// $primary   : #027BE3
-// $secondary : #26A69A
-// $accent    : #9C27B0
-
-// $dark      : #1D1D1D
-
-// $positive  : #21BA45
-// $negative  : #C10015
-// $info      : #31CCEC
-// $warning   : #F2C037
-
-// $primary   : #2A579A
-
-$bodyBackground: rgba(210,210,210,0.3)
-$background: rgba(255,255,255,1)
-
-$primary   : #4f6cdf
-$secondary : #ebde34
-$accent    : #9c3ed6
-
-$dark      : #403e3e
-
-$positive  : #38d9a6
-$negative  : #820909
-$info      : #2a9ab0
-$warning   : #f77777
+// background
+$bodyBackground: var(--body-background, unset)
+$background: var(--background, unset)
 
 // layout
-$portalContentWidthValue: 1100
-$portalContentMaxWidth: 1100px
-$portalContentMinWidth: 1100px
-$contentMaxWidth: 1200px
-$contentMinWidth: 1200px
+$portalContentWidthValue: var(--portal-content-width-value, unset)
+$portalContentMaxWidth: var(--portal-content-max-width, unset)
+$portalContentMinWidth: var(--portal-content-min-width, unset)
+$contentMaxWidth: var(--content-max-width, 100%)
+$contentMinWidth: var(--content-min-width, 100%)
 
-// Input field label
-$simpleFieldWidth: 368px
-$fieldLabelWidth: 120px
-$fieldLabelFontSize: 12px
-$fieldLabelColor: black
-$fieldLabelAfter: ':'
-$fieldLabelRequiredColor: red
-$editorAreaBackground: rgba(238,238,238,1)
+// table
+$tableBorderColor: var(--table-border-color, unset)
+$tableRowHeight: var(--table-row-height, unset)
 
-$zebraEvenColor: #f7f7f7
-// $zebraEvenColor: grey
-$zebraOddColor: white
+// zebra table
+$zebraEvenColor: var(--zebra-even-color, unset)
+$zebraOddColor: var(--zebra-odd-color, unset)
