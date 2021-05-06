@@ -1,6 +1,6 @@
 {
   "name": "eis-admin-starter-kit",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "The starter kit module for the EIS system frontend.",
   "author": "zhiquan",
   "license": "GPL-1.0-or-later",
@@ -8,7 +8,7 @@
   "main": "index.js",
   "repository": "git@gitlab.com:eis-modules/eis-admin-starter-kit.git",
   "scripts": {
-    "start": "quasar dev",
+    "start": "env=development quasar dev",
     "build": "env=development quasar build",
     "build:prod": "env=production quasar build",
     "build:test": "env=test quasar build",
