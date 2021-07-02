@@ -1,5 +1,5 @@
 <template>
-  <div id="q-app">
+  <div id="q-app" :class="`theme-${$store.state.app.theme}`">
     <router-view />
   </div>
 </template>

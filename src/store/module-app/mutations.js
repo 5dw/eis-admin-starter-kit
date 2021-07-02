@@ -11,3 +11,8 @@ export function ADD_CANI(state, c) {
 export function CLEAR_CANI(state) {
   state.canI = [];
 }
+
+export function SET_THEME(state, t) {
+  state.theme = t;
+  localStorage.setItem('theme', t);
+}

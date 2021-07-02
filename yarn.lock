@@ -3596,6 +3596,11 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+eis-admin-core@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/eis-admin-core/-/eis-admin-core-0.0.9.tgz#8f7cb34b9ca5be180301d86a95445865b49fb3dc"
+  integrity sha512-UyAmSDeuZ0Fo5za5pMlTkmFMWuDnqzmz+gduVNlxgqHdnzOH/ZiePfTjrD8fvPpB/CLRFXCCMRwkGx9LxsOc9Q==
+
 ejs@^2.3.1, ejs@^2.6.1:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"

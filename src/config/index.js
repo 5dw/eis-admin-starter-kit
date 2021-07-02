@@ -47,8 +47,8 @@ Object.nestValue = (obj, p) => {
   for (let i = 0; i < pList.length; i += 1) {
     const pl = pList[i];
 
-    if (v[pl]) v = v[pl];
-    else { return undefined; }
+    if (typeof v[pl] === 'object') v = v[pl];
+    else { return v[pl]; }
   }
 
   return v;

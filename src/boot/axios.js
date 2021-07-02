@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import axios from 'axios';
 // import { Platform } from 'quasar';
+import { Notify } from 'quasar';
 import config from '../config';
 
 const Mocks = [];
-const bus = new Vue();
 
 const { baseUrl } = config;
 // if (Platform.is.capacitor) {
@@ -42,7 +42,7 @@ axiosInstance.interceptors.response.use(
       if (window.location.pathname !== '/login') { window.location.pathname = '/login'; }
     } else if (error && error.response && error.response.status !== 404) {
       if (error.response.data && error.response.data.msg) {
-        bus.$q.notify(error.response.data.msg || error.response.data.msg.message);
+        Notify.create(error.response.data.msg || error.response.data.msg.message);
       }
     }
   },
@@ -50,7 +50,7 @@ axiosInstance.interceptors.response.use(
 
 const mockIt = (url, method) => {
   const theMock = Mocks.find(
-    mk => mk.method === method && new RegExp(mk.url).test(url),
+    (mk) => mk.method === method && new RegExp(mk.url).test(url),
   );
   if (theMock && theMock.func) {
     return new Promise((resolve) => {
