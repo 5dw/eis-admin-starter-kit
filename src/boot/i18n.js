@@ -13,8 +13,8 @@ const messages = {
   'zh-cn': {
     error404: '抱歉，此页面不存在...',
     goback: '返回',
-    LOGIN: '登陆',
-    LOGOUT: '退出登陆',
+    LOGIN: '登录',
+    LOGOUT: '退出登录',
     REGISTER: '注册',
     SETTINGS: '设置',
   },
