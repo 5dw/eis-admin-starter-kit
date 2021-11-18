@@ -3596,10 +3596,15 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-eis-admin-core@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/eis-admin-core/-/eis-admin-core-0.0.9.tgz#8f7cb34b9ca5be180301d86a95445865b49fb3dc"
-  integrity sha512-UyAmSDeuZ0Fo5za5pMlTkmFMWuDnqzmz+gduVNlxgqHdnzOH/ZiePfTjrD8fvPpB/CLRFXCCMRwkGx9LxsOc9Q==
+eis-admin-core@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/eis-admin-core/-/eis-admin-core-0.0.10.tgz#3fa0189d2028242ba8b18eb88b0cc6842155076f"
+  integrity sha512-Tud1WZpOKQnIfZLTX+AEnVGIZZM1TslKFigxnaZ97UWVDJEyMj+gutPR1mLt3S3U9M0Vty7rbhhkn/vJMKC5IQ==
+
+eis-admin-demo@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/eis-admin-demo/-/eis-admin-demo-0.0.4.tgz#a42ea11a6104f6644cdb912838c6ff01d2b4a809"
+  integrity sha512-2Zy+3vuLGLq6LNSe0ydui/pfpYWpC5HQY+RnQPkDYUpVsDEL6u4chF+swKh8WJ/4Ekmem98KZne98tbDl24dGQ==
 
 ejs@^2.3.1, ejs@^2.6.1:
   version "2.7.4"

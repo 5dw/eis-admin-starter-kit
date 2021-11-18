@@ -19,7 +19,8 @@
     "@quasar/extras": "^1.9.10",
     "axios": "^0.19.0",
     "echarts": "^4.9.0",
-    "eis-admin-core": "^0.0.9",
+    "eis-admin-core": "^0.0.10",
+    "eis-admin-demo": "^0.0.4",
     "js-cookie": "^2.2.1",
     "quasar": "^1.14.3",
     "vue-i18n": "^8.21.1"
