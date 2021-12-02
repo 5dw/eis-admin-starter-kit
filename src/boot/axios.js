@@ -39,7 +39,9 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     if (error && error.response && error.response.status === 401) {
-      if (window.location.pathname !== '/login') { window.location.pathname = '/login'; }
+      if (window.location.pathname !== '/login') {
+        window.location.href = `/login?redirect=${window.location.pathname}`;
+      }
     } else if (error && error.response && error.response.status !== 404) {
       if (error.response.data && error.response.data.msg) {
         Notify.create(error.response.data.msg || error.response.data.msg.message);

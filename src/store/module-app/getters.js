@@ -5,3 +5,7 @@ export function crumbs(state) {
 export function theme(state) {
   return state.theme;
 }
+
+export function getLocale(state) {
+  return state.locale;
+}

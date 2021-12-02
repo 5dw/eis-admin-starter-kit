@@ -16,3 +16,9 @@ export function SET_THEME(state, t) {
   state.theme = t;
   localStorage.setItem('theme', t);
 }
+
+export function SET_LOCALE(state, l) {
+  state.locale = l;
+
+  localStorage.setItem('locale', l);
+}

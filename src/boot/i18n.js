@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import { Quasar } from 'quasar';
+import store from '../store';
 
 const messages = {
   'en-us': {
@@ -22,7 +24,7 @@ const messages = {
 
 Vue.use(VueI18n);
 
-const DEFAULT_LANGUAGE = 'zh-cn';
+const DEFAULT_LANGUAGE = store().getters['app/getLocale'] || Quasar.lang.getLocale().toLowerCase() || 'zh-cn';
 
 const i18n = new VueI18n({
   locale: DEFAULT_LANGUAGE,

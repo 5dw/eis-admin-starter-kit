@@ -1,7 +1,5 @@
 <template>
-  <div id="q-app" :class="`theme-${$store.state.app.theme}`">
-    <router-view />
-  </div>
+  <router-view :class="`eis-app theme-${$store.state.app.theme || 'default'}`"/>
 </template>
 
 <script>
