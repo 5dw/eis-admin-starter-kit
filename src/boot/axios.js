@@ -42,6 +42,10 @@ axiosInstance.interceptors.response.use(
       if (window.location.pathname !== '/login') {
         window.location.href = `/login?redirect=${window.location.pathname}`;
       }
+    } else if (error && error.response && error.response.status === 403 && error.response.data && error.response.data.msg === 'RSTPWD') {
+      if (window.location.pathname !== '/recover') {
+        window.location.href = `/recover?redirect=${window.location.pathname}`;
+      }
     } else if (error && error.response && error.response.status !== 404) {
       if (error.response.data && error.response.data.msg) {
         Notify.create(error.response.data.msg || error.response.data.msg.message);
