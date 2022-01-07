@@ -1,15 +1,18 @@
 import Vue from 'vue';
 import axios from 'axios';
-// import { Platform } from 'quasar';
-import { Notify } from 'quasar';
+import { Platform, Notify } from 'quasar';
 import config from '../config';
 
 const Mocks = [];
 
-const { baseUrl } = config;
-// if (Platform.is.capacitor) {
-//   baseUrl = `${config.backendURL}${baseUrl}`;
-// }
+const ERROR_MESSAGES = {
+  401: 'No permission!',
+};
+
+let { baseUrl } = config;
+if (Platform.is.capacitor) {
+  baseUrl = `${config.backendURL}${baseUrl}`;
+}
 
 axios.defaults.timeout = 3000 * 1000;
 
@@ -48,7 +51,12 @@ axiosInstance.interceptors.response.use(
       }
     } else if (error && error.response && error.response.status !== 404) {
       if (error.response.data && error.response.data.msg) {
-        Notify.create(error.response.data.msg || error.response.data.msg.message);
+        let errMsg = error.response.data.msg.message || error.response.data.msg;
+        if (error.response.data.msg.code) {
+          errMsg = ERROR_MESSAGES[error.response.data.msg.code] || errMsg;
+        }
+
+        Notify.create(errMsg);
       }
     }
   },
