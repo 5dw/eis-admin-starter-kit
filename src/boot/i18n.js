@@ -24,7 +24,7 @@ const messages = {
 
 Vue.use(VueI18n);
 
-const DEFAULT_LANGUAGE = store().getters['app/getLocale'] || Quasar.lang.getLocale().toLowerCase() || 'zh-cn';
+const DEFAULT_LANGUAGE = store.getters['app/getLocale'] || Quasar.lang.getLocale().toLowerCase() || 'zh-cn';
 
 const i18n = new VueI18n({
   locale: DEFAULT_LANGUAGE,
