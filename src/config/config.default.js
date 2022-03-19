@@ -10,6 +10,8 @@ export default {
   videoUrlBase: '/assets/misc/',
   documentUrlBase: '/assets/docs/',
   nanPlaceholder: '/',
+  requestWithLocale: false,
+  ignoreMock: false,
   locales: [
     {
       locale: 'zh-cn',

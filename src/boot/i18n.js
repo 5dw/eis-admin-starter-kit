@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import { Quasar } from 'quasar';
 import store from '../store';
+import config from '../config';
 
 const messages = {
   'en-us': {
@@ -24,7 +25,22 @@ const messages = {
 
 Vue.use(VueI18n);
 
-const DEFAULT_LANGUAGE = store.getters['app/getLocale'] || Quasar.lang.getLocale().toLowerCase() || 'zh-cn';
+const getLocale = () => {
+  let locale = store.getters['app/getLocale'] || config.defaultLocale;
+
+  if (!locale) {
+    const sysLocale = Quasar.lang.getLocale().toLowerCase();
+    if (config.locales[sysLocale]) {
+      locale = sysLocale;
+    }
+  }
+
+  return locale || 'zh-cn';
+};
+
+const DEFAULT_LANGUAGE = getLocale();
+
+export { DEFAULT_LANGUAGE, getLocale };
 
 const i18n = new VueI18n({
   locale: DEFAULT_LANGUAGE,

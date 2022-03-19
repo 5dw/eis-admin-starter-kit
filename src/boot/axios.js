@@ -2,6 +2,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import { Platform, Notify } from 'quasar';
 import config from '../config';
+import { getLocale } from './i18n';
 
 const Mocks = [];
 
@@ -62,7 +63,18 @@ axiosInstance.interceptors.response.use(
   },
 );
 
+const addLocale = (opts) => {
+  const locale = getLocale();
+  if (config.requestWithLocale && locale) {
+    return { ...opts, locale };
+  }
+
+  return { ...opts };
+};
+
 const mockIt = (url, method) => {
+  if (!process.env.DEV || config.ignoreMock) return undefined;
+
   const theMock = Mocks.find(
     (mk) => mk.method === method && new RegExp(mk.url).test(url),
   );
@@ -96,6 +108,8 @@ const getRequest = (url, options, newWin = false) => {
   const shouldCancel = { shouldCancelRequest: options && options.cancel_request };
   if (options) delete options.cancel_request;
 
+  options = addLocale(options);
+
   if (options && Object.keys(options).length) {
     if (url.indexOf('?') > 0) {
       queryString += '&';
@@ -127,6 +141,8 @@ const postRequest = (url, data) => {
 
   if (data && data.pwdConfirm) delete data.pwdConfirm;
 
+  data = addLocale(data);
+
   return mockIt(url, 'post', data) || axiosInstance.post(url, data);
 };
 
@@ -144,10 +160,16 @@ const putRequest = (url, data) => {
 
   if (data && data.pwdConfirm) delete data.pwdConfirm;
 
+  data = addLocale(data);
+
   return mockIt(url, 'put', data) || axiosInstance.put(url, data);
 };
 
-const deleteRequest = (url, data) => mockIt(url, 'delete', { data }) || axiosInstance.delete(url, { data });
+const deleteRequest = (url, data) => {
+  data = addLocale(data);
+
+  return mockIt(url, 'delete', { data }) || axiosInstance.delete(url, { data });
+};
 
 const requests = {
   $axios: axiosInstance,
