@@ -72,7 +72,7 @@ const addLocale = (opts) => {
   return { ...opts };
 };
 
-const mockIt = (url, method) => {
+const mockIt = (url, method, opts) => {
   if (!process.env.DEV || config.ignoreMock) return undefined;
 
   const theMock = Mocks.find(
@@ -80,7 +80,7 @@ const mockIt = (url, method) => {
   );
   if (theMock && theMock.func) {
     return new Promise((resolve) => {
-      resolve(typeof theMock.func === 'function' ? theMock.func() : theMock.func);
+      resolve(typeof theMock.func === 'function' ? theMock.func(opts) : theMock.func);
     });
   }
   return undefined;
@@ -124,7 +124,7 @@ const getRequest = (url, options, newWin = false) => {
     return window.open(`${config.baseUrl}/${encodeURI(url)}${queryString}`);
   }
 
-  return mockIt(`${url}${queryString}`, 'get') || axiosInstance.get(encodeURI(url) + queryString, shouldCancel);
+  return mockIt(`${url}${queryString}`, 'get', options) || axiosInstance.get(encodeURI(url) + queryString, shouldCancel);
 };
 
 const postRequest = (url, data) => {
