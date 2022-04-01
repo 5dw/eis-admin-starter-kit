@@ -64,6 +64,8 @@ axiosInstance.interceptors.response.use(
 );
 
 const addLocale = (opts) => {
+  if (opts && opts.locale) return opts;
+
   const locale = getLocale();
   if (config.requestWithLocale && locale) {
     return { ...opts, locale };
