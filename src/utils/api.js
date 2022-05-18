@@ -1,8 +1,8 @@
 import req from '@/boot/axios';
 import store from '@/store';
 
-export function canI(url) {
-  if (store && store.state.app.canI) {
+export function canI(url, force = false) {
+  if (!force && store && store.state.app.canI) {
     const storedCanI = store.state.app.canI.find((ci) => ci && ci.url === url);
     if (storedCanI && typeof storedCanI.can !== 'undefined') {
       return new Promise(((resolve) => {

@@ -33,5 +33,11 @@ export default async (ctx) => {
     base: process.env.VUE_ROUTER_BASE,
   });
 
+  Router.afterEach(() => {
+    if (config.toTopEveryPage) {
+      window.scrollTo(0, 0);
+    }
+  });
+
   return Router;
 };
