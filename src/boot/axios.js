@@ -43,11 +43,11 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     if (error && error.response && error.response.status === 401) {
-      if (window.location.pathname !== '/login') {
+      if (window.location.pathname !== '/login' && !window.location.pathname.startsWith('/login?')) {
         window.location.href = `/login?redirect=${window.location.pathname}`;
       }
     } else if (error && error.response && error.response.status === 403 && error.response.data && error.response.data.msg === 'RSTPWD') {
-      if (window.location.pathname !== '/recover') {
+      if (window.location.pathname !== '/recover' && !window.location.pathname.startsWith('/recover?')) {
         window.location.href = `/recover?redirect=${window.location.pathname}`;
       }
     } else if (error && error.response && error.response.status !== 404) {
